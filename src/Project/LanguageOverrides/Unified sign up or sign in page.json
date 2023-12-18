@@ -1,0 +1,46 @@
+{
+  "LocalizedStrings": [
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "email",
+      "StringId": "DisplayName",
+      "Override": true,
+      "Value": "Email address"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "createaccount_intro",
+      "Override": true,
+      "Value": "If you don't already have one, "
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "createaccount_one_link",
+      "Override": true,
+      "Value": "create a new account"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "divider_title",
+      "Override": true,
+      "Value": "Create a new account"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "forgotpassword_link",
+      "Override": true,
+      "Value": "I've forgotten my password"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "local_intro_generic",
+      "Override": true,
+      "Value": "Sign in"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "LocalizedStrings": [
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "email",
+      "StringId": "DisplayName",
+      "Override": true,
+      "Value": "Email address"
+    },
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "emailVerificationCode",
+      "StringId": "DisplayName",
+      "Override": true,
+      "Value": "Verification code"
+    },
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "newPassword",
+      "StringId": "DisplayName",
+      "Override": true,
+      "Value": "Enter a password"
+    },
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "newPassword",
+      "StringId": "UserHelpText",
+      "Override": true,
+      "Value": "Enter a password"
+    },
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "reenterPassword",
+      "StringId": "DisplayName",
+      "Override": true,
+      "Value": "Re-type password"
+    },
+    {
+      "ElementType": "ClaimType",
+      "ElementId": "reenterPassword",
+      "StringId": "UserHelpText",
+      "Override": true,
+      "Value": "Re-type password"
+    },
+    {
+      "ElementType": "DisplayControl",
+      "ElementId": "emailVerificationControl",
+      "StringId": "but_change_claims",
+      "Override": true,
+      "Value": "Change email"
+    },
+    {
+      "ElementType": "DisplayControl",
+      "ElementId": "emailVerificationControl",
+      "StringId": "success_verify_code_msg",
+      "Override": true,
+      "Value": "Email address verified. You can continue now."
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "alert_title",
+      "Override": true,
+      "Value": "Cancel entering your details"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "button_continue",
+      "Override": true,
+      "Value": "Create an account"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "initial_intro",
+      "Override": true,
+      "Value": "Create an account"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "ver_but_edit",
+      "Override": true,
+      "Value": "Change email"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "ver_success_msg",
+      "Override": true,
+      "Value": "Email address verified. You can now continue."
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "verifying_blurb",
+      "Override": true,
+      "Value": ""
+    }
+  ]
+}

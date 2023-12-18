@@ -1,0 +1,18 @@
+{
+  "LocalizedStrings": [
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "initial_intro",
+      "Override": true,
+      "Value": "Create an account"
+    },
+    {
+      "ElementType": "UxElement",
+      "ElementId": null,
+      "StringId": "verifying_blurb",
+      "Override": true,
+      "Value": ""
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+trigger: none
+
+pool: DEFRA-COMMON-ubuntu2004-SSV3
+
+parameters:
+  - name: envToDeploy
+    displayName: Target deployment env
+    type: string
+    values:
+      - tst
+      - pre
+      - prd
+    default: tst
+
+variables:
+  - ${{ if eq(parameters.envToDeploy, 'tst') }}:
+    - name: azureSubscription
+      value: 'AZD-RWD-'
+    - name: containerName
+      value: 'b2c-styling-files'
+  - ${{ else }}:
+    - name: azureSubscription
+      value: 'AZR-RWD-'
+    - name: containerName
+      value: 'epr-account-styling'
+
+steps:
+  - task: CopyFiles@2
+    displayName: 'Copy static website content'
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)/${{ parameters.envToDeploy }}'
+      contents: '**'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      CleanTargetFolder: true
+
+  - task: AzureCLI@2
+    displayName: Publish static website files to blob container
+    inputs:
+        azureSubscription: $(azureSubscription)${{ parameters.envToDeploy }}1
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az account set -s $(azureSubscription)${{ parameters.envToDeploy }}1
+          az storage blob upload-batch -d '$(containerName)' -s '$(Build.ArtifactStagingDirectory)' --account-name ${{ parameters.envToDeploy }}rwddbssa1402 --overwrite true
+        CleanTargetBeforeCopy: true
