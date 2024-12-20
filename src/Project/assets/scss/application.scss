@@ -35,6 +35,11 @@ $govuk-assets-path: 'REPLACE-THIS/';
     }
 }
 
+.govuk-body {
+    word-break: break-word;
+    word-spacing: normal;
+}
+
 .epr-header.epr-header--with-additional-navigation {
     .epr-sign-out-nav {
         float: right;
