@@ -106,6 +106,44 @@
         html.setAttribute('class', 'govuk-template');
         let body = document.getElementsByTagName('body')[0];
         body.setAttribute('class', 'govuk-template__body');
+        try {
+
+            // remove water marks
+            let emailTxtBox = document.querySelector('#email');
+            if (emailTxtBox && emailTxtBox.hasAttribute('placeholder')) {
+                emailTxtBox.removeAttribute('placeholder');
+            }
+
+            let passwordTxtBox = document.querySelector('#password');
+            if (passwordTxtBox && passwordTxtBox.hasAttribute('placeholder')) {
+                passwordTxtBox.removeAttribute('placeholder');
+            }
+
+            let newPasswordTxtBox = document.querySelector('#newPassword');
+            if (newPasswordTxtBox && newPasswordTxtBox.hasAttribute('placeholder')) {
+                newPasswordTxtBox.removeAttribute('placeholder');
+            }
+
+            let reenterPasswordTxtBox = document.querySelector('#reenterPassword');
+            if (reenterPasswordTxtBox && reenterPasswordTxtBox.hasAttribute('placeholder')) {
+                reenterPasswordTxtBox.removeAttribute('placeholder');
+            }
+
+            // change email label  emailVerificationControl_but_change_claims
+            let changeClaimTxtBox = document.querySelector('#emailVerificationControl_but_change_claims');
+            if (changeClaimTxtBox && changeClaimTxtBox.hasAttribute('aria-label')) {
+                changeClaimTxtBox.removeAttribute('aria-label');
+            }
+
+            //  remove tabindex for div 
+            let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
+            if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
+                requiredFieldMissingdiv.removeAttribute('tabindex');
+            }
+        }
+        catch (err) {
+
+        }
     </script>
 
 </body>
