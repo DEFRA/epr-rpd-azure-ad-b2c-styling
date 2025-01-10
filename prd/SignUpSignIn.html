@@ -114,6 +114,10 @@
                 emailTxtBox.removeAttribute('placeholder');
             }
 
+            if (emailTxtBox && emailTxtBox.hasAttribute('autofocus')) {
+                emailTxtBox.removeAttribute('autofocus');
+            }
+
             let passwordTxtBox = document.querySelector('#password');
             if (passwordTxtBox && passwordTxtBox.hasAttribute('placeholder')) {
                 passwordTxtBox.removeAttribute('placeholder');
@@ -139,6 +143,14 @@
             let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
             if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
                 requiredFieldMissingdiv.removeAttribute('tabindex');
+            }
+
+            // remove empty headings
+            var h2ToRemove = document.getElementsByTagName('h2');
+            for (i = 0; i < h2ToRemove.length; i++) {
+                if (h2ToRemove.item(i).innerHTML.length == 0) {
+                    h2ToRemove.item(i).remove();
+                }
             }
         }
         catch (err) {
