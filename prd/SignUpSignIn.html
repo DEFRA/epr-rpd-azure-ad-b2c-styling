@@ -144,6 +144,14 @@
             if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
                 requiredFieldMissingdiv.removeAttribute('tabindex');
             }
+
+            // remove empty headings
+            var h2ToRemove = document.getElementsByTagName('h2');
+            for (i = 0; i < h2ToRemove.length; i++) {
+                if (h2ToRemove.item(i).innerHTML.length == 0) {
+                    h2ToRemove.item(i).remove();
+                }
+            }
         }
         catch (err) {
             console.log(err);
