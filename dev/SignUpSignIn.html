@@ -114,6 +114,10 @@
                 emailTxtBox.removeAttribute('placeholder');
             }
 
+            if (emailTxtBox && emailTxtBox.hasAttribute('autofocus')) {
+                emailTxtBox.removeAttribute('autofocus');
+            }
+
             let passwordTxtBox = document.querySelector('#password');
             if (passwordTxtBox && passwordTxtBox.hasAttribute('placeholder')) {
                 passwordTxtBox.removeAttribute('placeholder');
