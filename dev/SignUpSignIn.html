@@ -139,16 +139,6 @@
             if (changeClaimTxtBox && changeClaimTxtBox.hasAttribute('aria-label')) {
                 changeClaimTxtBox.removeAttribute('aria-label');
             }
-
-            // remove empty headings
-            let introDiv = document.querySelector('.intro');
-            if (introDiv) {
-                var h2ToRemove = introDiv.getElementsByTagName('h2');
-                if (h2ToRemove && h2ToRemove.item(0).innerHTML.length == 0) {
-                    introDiv.removeChild(h2ToRemove.item(0));
-                }
-            }
-
             let attrVerificationForm = document.querySelector('#attributeVerification');
             if (attrVerificationForm) {
               //  document.getElementById('attributeVerification')
