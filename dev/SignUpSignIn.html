@@ -110,8 +110,13 @@
 
             // remove water marks
             let emailTxtBox = document.querySelector('#email');
-            if (emailTxtBox && emailTxtBox.hasAttribute('placeholder')) {
-                emailTxtBox.removeAttribute('placeholder');
+            if (emailTxtBox) {
+                if (emailTxtBox.hasAttribute('placeholder')) {
+                    emailTxtBox.removeAttribute('placeholder');
+                }
+                if (emailTxtBox.hasAttribute('autofocus')) {
+                    emailTxtBox.removeAttribute('autofocus');
+                }
             }
 
             let passwordTxtBox = document.querySelector('#password');
@@ -135,10 +140,26 @@
                 changeClaimTxtBox.removeAttribute('aria-label');
             }
 
-            //  remove tabindex for div 
-            let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
-            if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
-                requiredFieldMissingdiv.removeAttribute('tabindex');
+            // remove empty headings
+            let introDiv = document.querySelector('.intro');
+            if (introDiv) {
+                var h2ToRemove = introDiv.getElementsByTagName('h2');
+                if (h2ToRemove && h2ToRemove.item(0).innerHTML.length == 0) {
+                    introDiv.removeChild(h2ToRemove.item(0));
+                }
+            }
+
+            let attrVerificationForm = document.querySelector('#attributeVerification');
+            if (attrVerificationForm) {
+              //  document.getElementById('attributeVerification')
+                attrVerificationForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent form submission
+                    //  remove tabindex for div 
+                    let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
+                    if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
+                        requiredFieldMissingdiv.removeAttribute('tabindex');
+                    }
+                });
             }
         }
         catch (err) {
