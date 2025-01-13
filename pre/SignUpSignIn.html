@@ -107,8 +107,6 @@
         let body = document.getElementsByTagName('body')[0];
         body.setAttribute('class', 'govuk-template__body');
         try {
-
-            // remove water marks
             let emailTxtBox = document.querySelector('#email');
             if (emailTxtBox) {
                 if (emailTxtBox.hasAttribute('placeholder')) {
@@ -134,7 +132,6 @@
                 reenterPasswordTxtBox.removeAttribute('placeholder');
             }
 
-            // change email label  emailVerificationControl_but_change_claims
             let changeClaimTxtBox = document.querySelector('#emailVerificationControl_but_change_claims');
             if (changeClaimTxtBox && changeClaimTxtBox.hasAttribute('aria-label')) {
                 changeClaimTxtBox.removeAttribute('aria-label');
@@ -142,10 +139,8 @@
 
             let attrVerificationForm = document.querySelector('#attributeVerification');
             if (attrVerificationForm) {
-              //  document.getElementById('attributeVerification')
                 attrVerificationForm.addEventListener('submit', function (event) {
-                    event.preventDefault(); // Prevent form submission
-                    //  remove tabindex for div 
+                    event.preventDefault();
                     let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
                     if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
                         requiredFieldMissingdiv.removeAttribute('tabindex');
