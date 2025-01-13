@@ -147,6 +147,21 @@
                     }
                 });
             }
+
+            // remove empty headings
+            let introDiv = document.querySelector('.intro');
+            if (introDiv)
+            {
+                var h2Tags= introDiv.getElementsByTagName('h2');
+                if (h2Tags)
+                {
+                    var h2ToRemove = h2Tags.item(0);
+                    if (h2ToRemove && h2ToRemove.innerHTML.trim() == "")
+                    {
+                        introDiv.removeChild(h2ToRemove);
+                    }
+                }
+            }
         }
         catch (err) {
             console.log(err);
