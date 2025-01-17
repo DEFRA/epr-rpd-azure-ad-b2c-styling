@@ -107,11 +107,14 @@
         let body = document.getElementsByTagName('body')[0];
         body.setAttribute('class', 'govuk-template__body');
         try {
-
-            // remove water marks
             let emailTxtBox = document.querySelector('#email');
-            if (emailTxtBox && emailTxtBox.hasAttribute('placeholder')) {
-                emailTxtBox.removeAttribute('placeholder');
+            if (emailTxtBox) {
+                if (emailTxtBox.hasAttribute('placeholder')) {
+                    emailTxtBox.removeAttribute('placeholder');
+                }
+                if (emailTxtBox.hasAttribute('autofocus')) {
+                    emailTxtBox.removeAttribute('autofocus');
+                }
             }
 
             let passwordTxtBox = document.querySelector('#password');
@@ -129,16 +132,35 @@
                 reenterPasswordTxtBox.removeAttribute('placeholder');
             }
 
-            // change email label  emailVerificationControl_but_change_claims
             let changeClaimTxtBox = document.querySelector('#emailVerificationControl_but_change_claims');
             if (changeClaimTxtBox && changeClaimTxtBox.hasAttribute('aria-label')) {
                 changeClaimTxtBox.removeAttribute('aria-label');
             }
 
-            //  remove tabindex for div 
-            let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
-            if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
-                requiredFieldMissingdiv.removeAttribute('tabindex');
+            let attrVerificationForm = document.querySelector('#attributeVerification');
+            if (attrVerificationForm) {
+                attrVerificationForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    let requiredFieldMissingdiv = document.querySelector('#requiredFieldMissing');
+                    if (requiredFieldMissingdiv && requiredFieldMissingdiv.hasAttribute('tabindex')) {
+                        requiredFieldMissingdiv.removeAttribute('tabindex');
+                    }
+                });
+            }
+
+            // remove empty headings
+            let introDiv = document.querySelector('.intro');
+            if (introDiv)
+            {
+                var h2Tags= introDiv.getElementsByTagName('h2');
+                if (h2Tags)
+                {
+                    var h2ToRemove = h2Tags.item(0);
+                    if (h2ToRemove && h2ToRemove.innerHTML.trim() == "")
+                    {
+                        introDiv.removeChild(h2ToRemove);
+                    }
+                }
             }
         }
         catch (err) {
