@@ -166,9 +166,9 @@
 
             //B2C Error message format and display
             let b2CErrorMsgDiv = document.querySelector('#UserMessageIfRequestTimeout');
-            const innerHtmlText = b2b2CErrorMsgDiv.innerHTML;
-            const searchForString = 'notification/email';
             if (b2CErrorMsgDiv) {
+                const innerHtmlText = b2b2CErrorMsgDiv.innerHTML;
+                const searchForString = 'notification/email';
                 if (innerHtmlText.toLowerCase().includes(searchForString)) { 
                     b2CErrorMsgDiv.innerHTML = "GOV.UK Notify is currently unavailable - try again later.";
                 }               
