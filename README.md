@@ -20,7 +20,7 @@ Depending on the environment you choose when running the pipeline, only that cor
 
 Due to the way the paths for the css stylesheets are replaced in the gulpfile, running locally means you need to have it pointed in the correct location, for example, if you take the tst folder, the html file will point to the css file that is in the tst storage account and if you want to test your changes locally first before pushing, you cant use this version as your changes wont be reflected without manually changing paths
 
-To run the gulpfile locally to regenerate the static files for each environment, you need node installed, once installed you then need to run npm install in the src/Project folder where hte packages.json file is located. 
+To run the gulpfile locally to regenerate the static files for each environment, you need node installed, once installed you then need to run npm install in the src/Project folder where the packages.json file is located. 
 
 You can then use Visual Studios task runner explorer tool which will find the gulpfile automatically (once you open the sln file) and you can then run the 'build-frontend' task which will regenerate everything. 
 
