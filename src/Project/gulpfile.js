@@ -1,6 +1,6 @@
 /// <binding BeforeBuild='build-frontend' />
 
-let enviroments = 'local,dev,tst,pre,prd';
+let enviroments = 'dev,tst,pre,prd';
 let enviromentList = enviroments.split(",");
 
 const gulp = require('gulp');
@@ -8,7 +8,6 @@ const sass = require('gulp-sass')(require('sass'));
 const replace = require('gulp-replace');
 const path = require('path');
 
-const storageContainerPath_local = './'
 const storageContainerPath_dev = 'https://devrwddbssa1402.blob.core.windows.net/epr-registration-styling-container'
 const storageContainerPath_tst = 'https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files'
 const storageContainerPath_pre = 'https://prerwddbssa1402.blob.core.windows.net/epr-account-styling'
@@ -55,24 +54,17 @@ function CreateContent(environment) {
     })
 
     gulp.task('replace-css-paths-' + environment, () => {
+        return gulp.src([path + '/application.css'])
+            .pipe(replace('REPLACE-THIS/fonts', storageContainerPath))
+            .pipe(replace('REPLACE-THIS/images', storageContainerPath))
+            .pipe(gulp.dest(path, { overwrite: true }))
+    })
 
-        // Conditionally strip leading slash if environment is local
-        const adjustedPath = (environment === 'local' && storageContainerPath.startsWith('/'))
-            ? storageContainerPath.slice(1)
-            : storageContainerPath;
-
-         return gulp.src([path + '/application.css'])
-             .pipe(replace('REPLACE-THIS/fonts', adjustedPath))
-             .pipe(replace('REPLACE-THIS/images', adjustedPath))
-             .pipe(gulp.dest(path, { overwrite: true }))
-     })
-
-     gulp.task('replace-template-paths-' + environment, () => {
-         return gulp.src(['assets/templates/SignUpSignIn.html'])
-             .pipe(replace('REPLACE-THIS-CSS-PATH', storageContainerPath))
-             .pipe(replace('REPLACE-THIS-REBRAND-PATH', storageContainerPath))
-             .pipe(gulp.dest(path, { overwrite: true }))
-     })
+    gulp.task('replace-template-paths-' + environment, () => {
+        return gulp.src(['assets/templates/SignUpSignIn.html'])
+            .pipe(replace('REPLACE-THIS-CSS-PATH', storageContainerPath))
+            .pipe(gulp.dest(path, { overwrite: true }))
+    })
 
     gulp.task('copy-rebrand-' + environment, () => {
         return gulp.src('node_modules/govuk-frontend/dist/govuk/assets/rebrand/**/*', { base: 'node_modules/govuk-frontend/dist/govuk/assets/rebrand/' })
@@ -89,4 +81,4 @@ function CreateContent(environment) {
 
 }
 
-gulp.task('build-frontend', gulp.series('build-frontend-local', 'build-frontend-dev', 'build-frontend-tst', 'build-frontend-pre', 'build-frontend-prd'))
+gulp.task('build-frontend', gulp.series('build-frontend-dev', 'build-frontend-tst', 'build-frontend-pre', 'build-frontend-prd'))

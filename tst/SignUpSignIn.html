@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="govuk-template govuk-template--rebranded">
+<html lang="en" class="govuk-template govuk-frontend--rebranded">
 <head>
     <title>Sign in - EPR for packaging - GOV.UK</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#1d70b8">
-    <link rel="icon" sizes="48x48" href="https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files/rebrand/images/favicon.ico">
-    <link rel="icon" sizes="any" href="https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files/rebrand/images/favicon.svg" type="image/svg+xml">
-    <link rel="mask-icon" href="https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files/rebrand/images/govuk-icon-mask.svg" color="#1d70b8">
-    <link rel="apple-touch-icon" href="https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files/rebrand/images/govuk-icon-180.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://tstrwddbssa1402.blob.core.windows.net/b2c-styling-files/application.css" rel="stylesheet" type="text/css" data-preload="true">
     <style type="text/css">
@@ -51,7 +47,7 @@
                     </a>
                 </div>
                 <div class="govuk-header__content">
-                    <a href="https://www.gov.uk/guidance/report-packaging-data" class="govuk-header__link govuk-header__service-name">
+                    <a href="https://www.gov.uk/guidance/report-packaging-data" class="epr-header__service-name epr-header__service-name--linked">
                         EPR for packaging
                     </a>
                 </div>
@@ -150,9 +146,9 @@
             buttonsDiv.after(forgotPasswordLink);
         }
         let html = document.getElementsByTagName('html')[0];
-        html.setAttribute('class', 'govuk-template govuk-template--rebranded');
+        html.setAttribute('class', 'govuk-template');
         let body = document.getElementsByTagName('body')[0];
-        body.setAttribute('class', 'govuk-template__body govuk-frontend-supported');
+        body.setAttribute('class', 'govuk-template__body');
         try {
             let emailTxtBox = document.querySelector('#email');
             if (emailTxtBox) {
