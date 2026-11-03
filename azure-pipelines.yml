@@ -13,14 +13,11 @@ parameters:
     default: tst
 
 variables:
+  - group: ServiceConnections
   - ${{ if eq(parameters.envToDeploy, 'tst') }}:
-    - name: azureSubscription
-      value: 'AZD-RWD-'
     - name: containerName
       value: 'b2c-styling-files'
   - ${{ else }}:
-    - name: azureSubscription
-      value: 'AZR-RWD-'
     - name: containerName
       value: 'epr-account-styling'
 
@@ -36,10 +33,9 @@ steps:
   - task: AzureCLI@2
     displayName: Publish static website files to blob container
     inputs:
-        azureSubscription: $(azureSubscription)${{ parameters.envToDeploy }}1
+        azureSubscription: $(ServiceConnection${{ upper(parameters.envToDeploy) }}1)
         scriptType: 'pscore'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az account set -s $(azureSubscription)${{ parameters.envToDeploy }}1
-          az storage blob upload-batch -d '$(containerName)' -s '$(Build.ArtifactStagingDirectory)' --account-name ${{ parameters.envToDeploy }}rwddbssa1402 --overwrite true
+          az storage blob upload-batch -d '$(containerName)' -s '$(Build.ArtifactStagingDirectory)' --account-name ${{ parameters.envToDeploy }}rwddbssa1402 --auth-mode login --overwrite true
         CleanTargetBeforeCopy: true
